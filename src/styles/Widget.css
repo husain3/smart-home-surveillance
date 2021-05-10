@@ -1,0 +1,61 @@
+.Widget {
+  background-color: #151515;
+  /* padding: 1rem; */
+  /* min-height: 265px; */
+  border-radius: 4px;
+  max-height: auto;
+  max-width: auto;
+  color: #ffffff;
+}
+
+/* autoprefixer: off */
+@supports(display:grid) {
+  .Widget {
+      /* display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto 1fr;
+      grid-template-areas: 
+          "header"
+          "content"; */
+  }
+
+  .App > * + * {
+      margin-top: 0;
+  }
+}
+
+.Widget .header {
+  grid-area: header;
+  line-height: 2;
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+.Widget h2 {
+  font-size: 200%;
+  margin: 0;
+  line-height: 1;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 1rem;
+}
+
+.Widget .content {
+  padding-top: 1rem;
+  overflow-y: auto;
+}
+
+.Widget .content {
+  overflow-y: hidden !important;
+}
+
+.Widget .content:hover {
+  overflow-y: auto !important;
+}
+
+@media(max-width: 600px) {
+  .Widget .content {
+      padding-top: 1rem;
+      overflow-y: auto;
+  }
+}
