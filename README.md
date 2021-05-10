@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# smart-home-surveillance
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the web app which simply displays all the video surveillance feed around the property.
+
+## Docker
+
+To run a development server using Docker, run the following:
+
+docker build -t smart-home-surveillance:latest .
+docker run \
+    -it \
+    --rm \
+    -v ${PWD}:/app \
+    -v /app/node_modules \
+    -p 3001:3000 \
+    -e CHOKIDAR_USEPOLLING=true \
+    smart-home-surveillance:latest
+
+NOTE: 3001:3000 - By default npm defaults to port 3000 in docker container and we are assigning the host's port 3001 to that port 3000
+
+To run the production server:
+
+docker build -f Dockerfile.prod -t smart-home-surveillance:prod .
+docker run -it --rm -p 5001:80 smart-home-surveillance:prod
 
 ## Available Scripts
 
