@@ -3,6 +3,7 @@ import Widget from './Widget';
 
 import '../styles/App.css';
 
+import { feeds } from "./VideoAddresses";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -17,59 +18,23 @@ function App() {
     <div className="App">
       <Container>
         <Row xs={1} md={1} xl={2}>
-          <Col>
-            <Widget heading="Driveway">
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justify="center"
-              >
-                <img src="http://192.168.1.137:8081/101/stream/" class="img-fluid" alt="Responsive image" />
-              </Grid>
-            </Widget>
-          </Col>
-          <Col>
-            <Widget heading="Garage">
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justify="center"
-              >
-                <img src="http://192.168.1.137:8081/2/stream/" class="img-fluid" alt="Responsive image" />
-                {/* <video src="http://192.168.1.104:8160/" class="img-fluid" alt="Responsive image" type="video/mp4"/> */}
-              </Grid>
-            </Widget>
-          </Col>
-          <Col>
-            <Widget heading="Front Door">
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justify="center"
-              >
-                <img src="http://192.168.1.137:8081/2/stream/" class="img-fluid" alt="Responsive image"  />
-              </Grid>
-            </Widget>
-          </Col>
-          <Col>
-            <Widget heading="Garage 2">
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justify="center"
-              >
-                <img src="http://192.168.1.137:8081/103/stream/" class="img-fluid" alt="Responsive image" />
-              </Grid>
-            </Widget>
-          </Col>
+          {feeds.videoAddresses.map((feed, i) => {
+            return (
+              <Col>
+                <Widget heading={feed.videoTitle}>
+                  <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <img src={feed.videoUrl} class="img-fluid" alt="Responsive image" />
+                  </Grid>
+                </Widget>
+              </Col>
+            );
+          })}
         </Row>
       </Container>
     </div>
