@@ -6,7 +6,11 @@ This is the web app which simply displays all the video surveillance feed around
 
 To run a development server using Docker, run the following:
 
+```
 docker build -t smart-home-surveillance:latest .
+```
+
+```
 docker run \
     -it \
     --rm \
@@ -15,13 +19,19 @@ docker run \
     -p 3001:3000 \
     -e CHOKIDAR_USEPOLLING=true \
     smart-home-surveillance:latest
+```
 
 NOTE: 3001:3000 - By default npm defaults to port 3000 in docker container and we are assigning the host's port 3001 to that port 3000
 
 To run the production server:
 
+```
 docker build -f Dockerfile.prod -t smart-home-surveillance:prod .
+```
+
+```
 docker run -it --rm -p 5001:80 smart-home-surveillance:prod
+```
 
 ## Available Scripts
 
