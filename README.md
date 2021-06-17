@@ -30,7 +30,7 @@ docker build -f Dockerfile.prod -t smart-home-surveillance:prod .
 ```
 
 ```
-docker run -it --rm -p 5001:80 smart-home-surveillance:prod
+docker run -d --restart always  -it -p 5001:80 smart-home-surveillance:prod
 ```
 
 ## Available Scripts
