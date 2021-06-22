@@ -32,6 +32,9 @@ docker build -f Dockerfile.prod -t smart-home-surveillance:prod .
 ```
 docker run -d --restart always  -it -p 5001:80 smart-home-surveillance:prod
 ```
+IMPORTANT NOTE: In order to build and run new changes on production server, follow this:
+
+https://javahowtos.com/guides/124-docker/414-solved-cannot-kill-docker-container-permission-denied.html
 
 ## Available Scripts
 
